@@ -1,0 +1,77 @@
+{
+  "name": "@comchatx/cx-listing-watch",
+  "version": "0.1.0",
+  "description": "Has cx watch your listings on a schedule and tell you what needs changing.",
+  "license": "MIT",
+  "author": "ComChatX",
+  "comchatx": {
+    "about": "让 cx 按你定的时间盯着 listing，有要改的再告诉你。",
+    "description": "告诉 cx 你想怎样盯着自己的 listing，比如“以后每天帮我看一下，有需要改的再告诉我”，cx 会按时照此执行。\n\n## 怎么用\n\n- 输入 `/listing-watch`，加上 ASIN 和你的要求。你的话里没说清的，cx 才会问：多久看一次、什么时候告诉你、在哪里告诉你，以及哪些可以不问你就改。\n- cx 会把你的话记成每个 listing 的执行说明，存在你的文件里，你可以随时查看和修改。\n- 每次检查时，cx 会查看 listing 和市场情况，只告诉你你想知道的事。\n\n## 它会用到\n\n它用 cx-listing-playbook 检查 listing，用 Amazon SP-API 读取你的店铺，有 Keepa 时用它查看市场历史，用 cx-schedule 定时，用 cx-feishu 在飞书里通知你。安装时会一并装好这些插件。\n\n## 费用\n\n检查只在 cx 的电脑开机时运行，开机时长和每次检查读取的数据都需要付费。",
+    "mark": {
+      "line": "review"
+    },
+    "section": "extensions",
+    "order": 52,
+    "tryIt": [
+      {
+        "en": "/listing-watch {asin} Check it every day, tell me only when something needs changing",
+        "zh": "/listing-watch {asin} 以后每天帮我盯着这个 listing，有要改的告诉我，没事别吵"
+      }
+    ],
+    "needs": [
+      "@comchatx/cx-schedule",
+      "cx-feishu"
+    ],
+    "builds": [
+      "@comchatx/cx-schedule",
+      "cx-feishu",
+      "cx-listing-playbook",
+      "cx-amazon-sp-api",
+      {
+        "on": "cx-keepa",
+        "need": "optional"
+      }
+    ]
+  },
+  "homepage": "https://github.com/comchatx/cx-listing-watch#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/comchatx/cx-listing-watch.git"
+  },
+  "bugs": "https://github.com/comchatx/cx-listing-watch/issues",
+  "keywords": [
+    "pi-package"
+  ],
+  "type": "module",
+  "pi": {
+    "prompts": [
+      "./prompts"
+    ]
+  },
+  "files": [
+    "prompts"
+  ],
+  "scripts": {
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run"
+  },
+  "peerDependencies": {
+    "@earendil-works/pi-coding-agent": "*"
+  },
+  "devDependencies": {
+    "@earendil-works/pi-ai": "1.1.0",
+    "@earendil-works/pi-coding-agent": "1.1.0",
+    "@types/node": "26.2.0",
+    "typescript": "7.0.2",
+    "vitest": "4.1.11"
+  },
+  "overrides": {
+    "@earendil-works/chord": "1.1.0",
+    "@earendil-works/pi-ai": "1.1.0",
+    "@earendil-works/pi-mcp": "1.1.0",
+    "@earendil-works/pi-tui": "1.1.0",
+    "@earendil-works/pi-codemode": "1.1.0",
+    "@earendil-works/pi-agent-core": "1.1.0",
+    "@earendil-works/pi-telemetry": "1.1.0"
+  }
+}
