@@ -1,6 +1,6 @@
 {
   "name": "@comchatx/cx-listing-watch",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Has cx watch your listings on a schedule and tell you what needs changing.",
   "license": "MIT",
   "author": "ComChatX",
@@ -19,12 +19,14 @@
       }
     ],
     "needs": [
-      "@comchatx/cx-schedule",
-      "cx-feishu"
+      "@comchatx/cx-schedule"
     ],
     "builds": [
       "@comchatx/cx-schedule",
-      "cx-feishu",
+      {
+        "on": "cx-feishu",
+        "need": "optional"
+      },
       "cx-listing-playbook",
       "cx-amazon-sp-api",
       {

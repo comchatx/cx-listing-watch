@@ -8,7 +8,7 @@ Tell cx in your own words how to watch your listings, such as “check it every 
 
 ## What it uses
 
-It uses cx-listing-playbook for reviewing a listing, Amazon SP-API for your store, Keepa for the market's history where you have it, cx-schedule for the times, and cx-feishu to tell you in Feishu. Plugins installs them with it.
+It uses cx-listing-playbook for reviewing a listing, Amazon SP-API for your store, Keepa for the market's history where you have it, cx-schedule for the times, and cx-feishu to tell you in Feishu if you want it. Plugins installs the others with it; cx-feishu only if you choose it. Without cx-feishu, cx tells you in the chat.
 
 ## What it costs
 
