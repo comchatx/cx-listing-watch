@@ -6,8 +6,8 @@ A [pi](https://pi.dev) package for a [ComChatX](https://comchatx.com) box that c
 
 ## What it needs
 
-- **Every plugin it uses is in the `comchatx` field's `builds`**, which the Plugins page installs with it: `@comchatx/cx-schedule`, `cx-feishu`, `cx-listing-playbook`, `cx-amazon-sp-api`, and `cx-keepa` as optional.
-- **`comchatx.needs` names the two that ship a skill of their own name**, `@comchatx/cx-schedule` and `cx-feishu` (`docs/parts/plugin-interface.md` §2 item 5).
+- **Every plugin it uses is in the `comchatx` field's `builds`**, which the Plugins page installs with it: `@comchatx/cx-schedule`, `cx-listing-playbook`, `cx-amazon-sp-api`, and `cx-feishu` and `cx-keepa` as optional.
+- **`comchatx.needs` names `@comchatx/cx-schedule`**, the one it cannot work without that ships a skill of its own name (`docs/parts/plugin-interface.md` §2 item 5). `cx-feishu` is optional (Jack, 2026-11-02): where the seller asked for Feishu and no cx-feishu skill is listed, the template has cx tell the seller in the chat.
 - **It ships no skill, so it carries no `needs` sentence of its own.** No package needs a template-only package, and none names this one. The sentence cx reads lives in the skills of the plugins it uses: each of those skills says how it is installed, and what it means when none of that plugin's tools is there.
 
 ## Install
