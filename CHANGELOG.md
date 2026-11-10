@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.1.3
+
+- The card's line and the Overview, in English and Chinese, are the words signed on 2026-11-10: "Has cx check listings regularly and say what needs changing." as npm's `description`, and 「让 cx 按你的要求定期检查 listing，需要修改时再告诉你。」 as `comchatx.about`. They said "Has cx watch your listings on a schedule and tell you what needs changing." and 「让 cx 在你设定的时间检查 listing，需要修改时再告诉你。」.
+
 ## 0.1.2
 
 - The README in Chinese, `README.zh-CN.md`, which the Plugins page draws as the Overview in Chinese.

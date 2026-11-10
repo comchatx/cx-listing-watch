@@ -1,14 +1,12 @@
-Tell cx in your own words how to watch your listings, such as “check it every day and tell me only when something needs changing”, and cx keeps to it on a schedule.
+Tell cx how often to check a listing, what to report and what it may change, and cx checks on time and reports only that. It needs cx-listing-playbook, Amazon SP-API and cx-schedule, which Plugins installs with it.
 
-## How it works
+Some things you can ask:
 
-- Type `/listing-watch` with the ASINs and what you want. cx asks only what your words leave open: how often, when to tell you, where to tell you, and what it may change without asking you.
-- cx writes your words down as the instruction it follows for each listing, in your files, where you can read and change it.
-- At each check cx looks at the listing and the market, and tells you only what you asked to hear.
+- Check B0EXAMPLE1 every Monday, and tell me if conversion fell from last week.
+- Check my five new products every day, and tell me when Amazon flags a problem.
+- Check B0EXAMPLE1's title and bullet points every two weeks, and tell me what needs changing.
 
-## What it uses
-
-It uses cx-listing-playbook for reviewing a listing, Amazon SP-API for your store, Keepa for the market's history where you have it, cx-schedule for the times, and cx-feishu to tell you in Feishu if you want it. Plugins installs the others with it; cx-feishu only if you choose it. Without cx-feishu, cx tells you in the chat.
+What you allow it to change, cx changes in your store and then tells you. With Keepa it also reads the market's history; with cx-feishu it tells you in Feishu, otherwise in the chat. Your words become a standing instruction for each listing, kept in your files, where you can read and change it.
 
 ## What it costs
 
