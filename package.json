@@ -1,11 +1,11 @@
 {
   "name": "@comchatx/cx-listing-watch",
-  "version": "0.1.2",
-  "description": "Has cx watch your listings on a schedule and tell you what needs changing.",
+  "version": "0.1.3",
+  "description": "Has cx check listings regularly and say what needs changing.",
   "license": "MIT",
   "author": "ComChatX",
   "comchatx": {
-    "about": "让 cx 在你设定的时间检查 listing，需要修改时再告诉你。",
+    "about": "让 cx 按你的要求定期检查 listing，需要修改时再告诉你。",
     "mark": {
       "line": "review"
     },
