@@ -1,5 +1,5 @@
 ---
-description: Have cx watch your listings on a schedule and tell you what needs changing — e.g. /listing-watch <ASIN> 以后每天帮我盯着这个 listing，有要改的告诉我，没事别吵
+description: Tell cx which listings to check regularly, and when to tell you.
 argument-hint: "<ASINs> <what you want, in your words>"
 ---
 Watch my listings $1 from my words: ${@:2}

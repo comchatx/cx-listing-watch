@@ -44,3 +44,10 @@ it("the comchatx field carries no description, which the Plugins page never draw
   expect(field["description"]).toBeUndefined();
   expect(field["about"]).toMatch(/[一-鿿]/);
 });
+
+it("the template's line is the signed words: English in its description, Chinese in comchatx.prompts, and no Try it example of its own", async () => {
+  const { loader } = await loadPackage(ROOT);
+  expect(loader.getPrompts().prompts.map((prompt) => prompt.description)).toEqual(["Tell cx which listings to check regularly, and when to tell you."]);
+  expect(manifest()["comchatx"]["prompts"]).toEqual({ "listing-watch": { zh: "告诉 cx 定期检查哪些 listing，以及何时告诉你。" } });
+  expect(manifest()["comchatx"]).not.toHaveProperty("tryIt");
+});
