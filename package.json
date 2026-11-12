@@ -1,10 +1,11 @@
 {
   "name": "@comchatx/cx-listing-watch",
-  "version": "0.1.4",
+  "version": "0.1.5",
   "description": "Has cx check listings regularly and say what needs changing.",
   "license": "MIT",
   "author": "ComChatX",
   "comchatx": {
+    "name": "Amazon Listing Watch",
     "about": "让 cx 按你的要求定期检查 listing，需要修改时再告诉你。",
     "mark": {
       "line": "review"

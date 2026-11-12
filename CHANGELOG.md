@@ -1,5 +1,10 @@
 # Changelog
 
+## 0.1.5
+
+- The card's name is the one signed on 2026-11-11, "Amazon Listing Watch", in `comchatx.name`, the same on the Chinese and the English page.
+- The README, in English and Chinese, calls each of our plugins by its card's name, not its npm name.
+
 ## 0.1.4
 
 - The template's line is the words signed on 2026-11-10: its `description` is "Tell cx which listings to check regularly, and when to tell you.", in English only, and `comchatx.prompts["listing-watch"].zh` is 「告诉 cx 定期检查哪些 listing，以及何时告诉你。」.
