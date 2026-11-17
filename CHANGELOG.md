@@ -1,5 +1,10 @@
 # Changelog
 
+## 0.1.6
+
+- The card's name is the one signed on 2026-11-17: "Amazon Listing Watch" on the English page (`comchatx.name`) and 「亚马逊 listing 巡检」 on the Chinese page (`comchatx.nameZh`).
+- The README, in English and Chinese, calls each plugin of ours it names by the card's name signed on 2026-11-17.
+
 ## 0.1.5
 
 - The card's name is the one signed on 2026-11-11, "Amazon Listing Watch", in `comchatx.name`, the same on the Chinese and the English page.
