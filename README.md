@@ -1,4 +1,4 @@
-Tell cx how often to check a listing, what to report and what it may change, and cx checks on time and reports only that. It needs Amazon Listing Playbook, Amazon SP-API and Scheduled Tasks, which Plugins installs with it.
+Tell cx how often to check a listing, what to report and what it may change, and cx checks on time and reports only that. It needs [Amazon Listing Playbook](https://www.npmjs.com/package/cx-listing-playbook), [Amazon SP-API](https://www.npmjs.com/package/cx-amazon-sp-api) and [Scheduled Tasks](https://www.npmjs.com/package/@comchatx/cx-schedule), which Plugins installs with it.
 
 Some things you can ask:
 
@@ -6,7 +6,7 @@ Some things you can ask:
 - Check my five new products every day, and tell me when Amazon flags a problem.
 - Check B0EXAMPLE1's title and bullet points every two weeks, and tell me what needs changing.
 
-What you allow it to change, cx changes in your store and then tells you. With Keepa API it also reads the market's history; with Feishu Connector it tells you in Feishu, otherwise in the chat. Your words become a standing instruction for each listing, kept in your files, where you can read and change it.
+What you allow it to change, cx changes in your store and then tells you. With [Keepa API](https://www.npmjs.com/package/cx-keepa) it also reads the market's history; with [Feishu Connector](https://www.npmjs.com/package/cx-feishu) it tells you in Feishu, otherwise in the chat. Your words become a standing instruction for each listing, kept in your files, where you can read and change it.
 
 ## What it costs
 
