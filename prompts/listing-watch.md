@@ -1,5 +1,5 @@
 ---
-description: Tell cx which listings to check regularly, and when to tell you.
+description: "Check [ASINs] regularly. How often, and when to tell me: [instructions]"
 argument-hint: "<ASINs> <what you want, in your words>"
 ---
 Watch my listings $1 from my words: ${@:2}
