@@ -27,8 +27,7 @@
       {
         "on": "cx-keepa",
         "need": "optional"
-      },
-      "cx-amazon-seller"
+      }
     ],
     "prompts": {
       "listing-watch": {
