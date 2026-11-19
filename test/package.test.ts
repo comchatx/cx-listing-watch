@@ -28,7 +28,7 @@ it("/listing-watch shows as a command and expands with the seller's ASINs and wo
 it("is @comchatx/cx-listing-watch; the Plugins page installs every borrowed plugin from builds, and needs names cx-schedule alone, cx-feishu optional", () => {
   expect([manifest()["name"], manifest()["repository"]["url"]]).toEqual(["@comchatx/cx-listing-watch", "git+https://github.com/comchatx/cx-listing-watch.git"]);
   expect(manifest()["comchatx"]["needs"]).toEqual(["@comchatx/cx-schedule"]);
-  expect(manifest()["comchatx"]["builds"]).toEqual(["@comchatx/cx-schedule", { on: "cx-feishu", need: "optional" }, "cx-listing-playbook", "cx-amazon-sp-api", { on: "cx-keepa", need: "optional" }]);
+  expect(manifest()["comchatx"]["builds"]).toEqual(["@comchatx/cx-schedule", { on: "cx-feishu", need: "optional" }, "cx-listing-playbook", "cx-amazon-sp-api", { on: "cx-keepa", need: "optional" }, "cx-amazon-seller"]);
   expect(manifest()["pi"]).toEqual({ prompts: ["./prompts"] });
   for (const field of ["dependencies", "bundleDependencies", "bundledDependencies"]) expect(manifest()[field], field).toBeUndefined();
 });
