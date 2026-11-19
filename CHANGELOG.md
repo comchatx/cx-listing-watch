@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.1.7
+
+- The README, in English and Chinese, no longer names other plugins, as signed on 2026-11-18: the Overview's first paragraph drops its last sentence ("It needs Amazon Listing Playbook, Amazon SP-API and Scheduled Tasks, which Plugins installs with it."), and the sentence on Keepa and Feishu in the later paragraph is removed. The Plugins page draws what the package builds on from `comchatx.builds`.
+- Each optional entry of `comchatx.builds` carries its reason in `why` (`en`, `zh`): `cx-keepa` 「用于让 cx 检查时也看市场的历史。」 / "Lets cx read the market's history when it checks.", `cx-feishu` 「用于让 cx 把检查结果发到你的飞书群。」 / "Sends each check's result to your Feishu group.", and a new optional `cx-amazon-seller` 「用于让 cx 从第一条消息起就知道你在亚马逊开店。」 / "Tells cx from the start that you sell on Amazon.".
+- The template's line is the words signed on 2026-11-17, written as the seller's own message: its `description` is "Check [ASINs] regularly. How often, and when to tell me: [instructions]" and `comchatx.prompts["listing-watch"].zh` is 「定期检查【ASIN】，多久查一次、什么时候告诉我：【要求】」.
+
 ## 0.1.6
 
 - The card's name is the one signed on 2026-11-17: "Amazon Listing Watch" on the English page (`comchatx.name`) and 「亚马逊 listing 巡检」 on the Chinese page (`comchatx.nameZh`).

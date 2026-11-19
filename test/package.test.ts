@@ -28,7 +28,7 @@ it("/listing-watch shows as a command and expands with the seller's ASINs and wo
 it("is @comchatx/cx-listing-watch; the Plugins page installs every borrowed plugin from builds, and needs names cx-schedule alone, cx-feishu optional", () => {
   expect([manifest()["name"], manifest()["repository"]["url"]]).toEqual(["@comchatx/cx-listing-watch", "git+https://github.com/comchatx/cx-listing-watch.git"]);
   expect(manifest()["comchatx"]["needs"]).toEqual(["@comchatx/cx-schedule"]);
-  expect(manifest()["comchatx"]["builds"]).toEqual(["@comchatx/cx-schedule", { on: "cx-feishu", need: "optional" }, "cx-listing-playbook", "cx-amazon-sp-api", { on: "cx-keepa", need: "optional" }]);
+  expect(manifest()["comchatx"]["builds"]).toEqual(["@comchatx/cx-schedule", { on: "cx-feishu", need: "optional", why: { en: "Sends each check's result to your Feishu group.", zh: "用于让 cx 把检查结果发到你的飞书群。" } }, "cx-listing-playbook", "cx-amazon-sp-api", { on: "cx-keepa", need: "optional", why: { en: "Lets cx read the market's history when it checks.", zh: "用于让 cx 检查时也看市场的历史。" } }, { on: "cx-amazon-seller", need: "optional", why: { en: "Tells cx from the start that you sell on Amazon.", zh: "用于让 cx 从第一条消息起就知道你在亚马逊开店。" } }]);
   expect(manifest()["pi"]).toEqual({ prompts: ["./prompts"] });
   for (const field of ["dependencies", "bundleDependencies", "bundledDependencies"]) expect(manifest()[field], field).toBeUndefined();
 });
@@ -47,8 +47,8 @@ it("the comchatx field carries no description, which the Plugins page never draw
 
 it("the template's line is the signed words: English in its description, Chinese in comchatx.prompts, and no Try it example of its own", async () => {
   const { loader } = await loadPackage(ROOT);
-  expect(loader.getPrompts().prompts.map((prompt) => prompt.description)).toEqual(["Tell cx which listings to check regularly, and when to tell you."]);
-  expect(manifest()["comchatx"]["prompts"]).toEqual({ "listing-watch": { zh: "告诉 cx 定期检查哪些 listing，以及何时告诉你。" } });
+  expect(loader.getPrompts().prompts.map((prompt) => prompt.description)).toEqual(["Check [ASINs] regularly. How often, and when to tell me: [instructions]"]);
+  expect(manifest()["comchatx"]["prompts"]).toEqual({ "listing-watch": { zh: "定期检查【ASIN】，多久查一次、什么时候告诉我：【要求】" } });
   expect(manifest()["comchatx"]).not.toHaveProperty("tryIt");
 });
 
@@ -56,4 +56,8 @@ it("the card's name is comchatx.name, the one signed on 2026-11-11", () => {
   const field = (JSON.parse(readFileSync(join(ROOT, "package.json"), "utf8")) as { comchatx: { name?: unknown; nameZh?: unknown } }).comchatx;
   expect(field.name).toBe("Amazon Listing Watch");
   expect(field.nameZh).toBe("亚马逊 listing 巡检");
+});
+
+it("the README names no other plugin: what the package builds on is its manifest's builds, each optional one with its reason", () => {
+  for (const readme of ["README.md", "README.zh-CN.md"]) expect(readFileSync(join(ROOT, readme), "utf8")).not.toMatch(/npmjs\.com\/package/);
 });

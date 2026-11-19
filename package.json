@@ -1,6 +1,6 @@
 {
   "name": "@comchatx/cx-listing-watch",
-  "version": "0.1.6",
+  "version": "0.1.7",
   "description": "Has cx check listings regularly and say what needs changing.",
   "license": "MIT",
   "author": "ComChatX",
@@ -20,18 +20,34 @@
       "@comchatx/cx-schedule",
       {
         "on": "cx-feishu",
-        "need": "optional"
+        "need": "optional",
+        "why": {
+          "en": "Sends each check's result to your Feishu group.",
+          "zh": "用于让 cx 把检查结果发到你的飞书群。"
+        }
       },
       "cx-listing-playbook",
       "cx-amazon-sp-api",
       {
         "on": "cx-keepa",
-        "need": "optional"
+        "need": "optional",
+        "why": {
+          "en": "Lets cx read the market's history when it checks.",
+          "zh": "用于让 cx 检查时也看市场的历史。"
+        }
+      },
+      {
+        "on": "cx-amazon-seller",
+        "need": "optional",
+        "why": {
+          "en": "Tells cx from the start that you sell on Amazon.",
+          "zh": "用于让 cx 从第一条消息起就知道你在亚马逊开店。"
+        }
       }
     ],
     "prompts": {
       "listing-watch": {
-        "zh": "告诉 cx 定期检查哪些 listing，以及何时告诉你。"
+        "zh": "定期检查【ASIN】，多久查一次、什么时候告诉我：【要求】"
       }
     }
   },
