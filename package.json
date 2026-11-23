@@ -62,11 +62,15 @@
   ],
   "type": "module",
   "pi": {
+    "skills": [
+      "./skills"
+    ],
     "prompts": [
       "./prompts"
     ]
   },
   "files": [
+    "skills",
     "prompts",
     "README.zh-CN.md"
   ],

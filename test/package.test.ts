@@ -10,12 +10,14 @@ const SENTENCE = "Check [ASINs] regularly. How often, and when to tell me: [inst
 const ROOT = resolve(fileURLToPath(new URL("..", import.meta.url)));
 const manifest = (): Record<string, any> => JSON.parse(readFileSync(join(ROOT, "package.json"), "utf8"));
 
-it("the pinned pi loads one template, /listing-watch, and no skill or extension", async () => {
+it("the pinned pi loads one template, /listing-watch, one skill, watch-instruction, and no extension", async () => {
   const { loader } = await loadPackage(ROOT);
   const prompts = loader.getPrompts();
   expect(prompts.diagnostics).toEqual([]);
   expect(prompts.prompts.map((prompt) => [prompt.name, prompt.filePath])).toEqual([["listing-watch", join(ROOT, "prompts", "listing-watch.md")]]);
-  expect(loader.getSkills().skills).toEqual([]);
+  const skills = loader.getSkills();
+  expect(skills.diagnostics).toEqual([]);
+  expect(skills.skills.map((skill) => [skill.name, skill.filePath])).toEqual([["watch-instruction", join(ROOT, "skills", "watch-instruction", "SKILL.md")]]);
   expect(loader.getExtensions().extensions).toEqual([]);
 });
 
@@ -33,14 +35,14 @@ it("is @comchatx/cx-listing-watch; the Plugins page installs every borrowed plug
   expect([manifest()["name"], manifest()["repository"]["url"]]).toEqual(["@comchatx/cx-listing-watch", "git+https://github.com/comchatx/cx-listing-watch.git"]);
   expect(manifest()["comchatx"]["needs"]).toEqual(["@comchatx/cx-schedule"]);
   expect(manifest()["comchatx"]["builds"]).toEqual(["@comchatx/cx-schedule", { on: "cx-feishu", need: "optional", why: { en: "Sends each check's result to your Feishu group.", zh: "用于让 cx 把检查结果发到你的飞书群。" } }, "cx-listing-playbook", "cx-amazon-sp-api", { on: "cx-keepa", need: "optional", why: { en: "Lets cx read the market's history when it checks.", zh: "用于让 cx 检查时也看市场的历史。" } }, { on: "cx-amazon-seller", need: "optional", why: { en: "Tells cx from the start that you sell on Amazon.", zh: "用于让 cx 从第一条消息起就知道你在亚马逊开店。" } }]);
-  expect(manifest()["pi"]).toEqual({ prompts: ["./prompts"] });
+  expect(manifest()["pi"]).toEqual({ skills: ["./skills"], prompts: ["./prompts"] });
   for (const field of ["dependencies", "bundleDependencies", "bundledDependencies"]) expect(manifest()[field], field).toBeUndefined();
 });
 
-it("the tarball holds the template, the README and the licence alone", () => {
+it("the tarball holds the template, the skill, the README and the licence alone", () => {
   const out = scratch();
   const [packed] = JSON.parse(execFileSync("npm", ["pack", "--dry-run", "--json", "--ignore-scripts", "--pack-destination", out], { cwd: ROOT, encoding: "utf8" })) as { files: { path: string }[] }[];
-  expect(packed!.files.map((file) => file.path).sort()).toEqual(["LICENSE", "README.md", "README.zh-CN.md", "package.json", "prompts/listing-watch.md"]);
+  expect(packed!.files.map((file) => file.path).sort()).toEqual(["LICENSE", "README.md", "README.zh-CN.md", "package.json", "prompts/listing-watch.md", "skills/watch-instruction/SKILL.md"]);
 }, 60_000);
 
 it("the comchatx field carries no description, which the Plugins page never draws: the card's Chinese line is about", () => {
@@ -64,4 +66,11 @@ it("the card's name is comchatx.name, the one signed on 2026-11-11", () => {
 
 it("the README names no other plugin: what the package builds on is its manifest's builds, each optional one with its reason", () => {
   for (const readme of ["README.md", "README.zh-CN.md"]) expect(readFileSync(join(ROOT, readme), "utf8")).not.toMatch(/npmjs\.com\/package/);
+});
+
+it("the skill says where a listing's standing instruction is kept, that it holds the seller's own words, and that the seller can read and change it", () => {
+  const text = readFileSync(join(ROOT, "skills", "watch-instruction", "SKILL.md"), "utf8");
+  expect(text).toContain("cx-listing-playbook`'s `listing-review` skill");
+  expect(text).toContain("The file holds the seller's own words for that listing.");
+  expect(text).toContain("the seller can read it and change it.");
 });
