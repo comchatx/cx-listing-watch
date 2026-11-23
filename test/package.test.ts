@@ -5,6 +5,8 @@ import { fileURLToPath } from "node:url";
 import { expect, it } from "vitest";
 import { loadPackage, scratch, typed } from "./pi.js";
 
+const SENTENCE = "Check [ASINs] regularly. How often, and when to tell me: [instructions]";
+
 const ROOT = resolve(fileURLToPath(new URL("..", import.meta.url)));
 const manifest = (): Record<string, any> => JSON.parse(readFileSync(join(ROOT, "package.json"), "utf8"));
 
@@ -17,12 +19,14 @@ it("the pinned pi loads one template, /listing-watch, and no skill or extension"
   expect(loader.getExtensions().extensions).toEqual([]);
 });
 
-it("/listing-watch shows as a command and expands with the seller's ASINs and words, no placeholder left", async () => {
-  const text = await typed(ROOT, "/listing-watch B000123456 以后每天帮我盯着这个 listing，有要改的告诉我，没事别吵");
-  expect(text.split("\n")[0]).toBe("Watch my listings B000123456 from my words: 以后每天帮我盯着这个 listing，有要改的告诉我，没事别吵");
-  expect(text).toContain("/tenant/listings/<ASIN>/watch.md");
-  expect(text).not.toMatch(/\$\{?[@0-9A]/);
-  expect(text).toContain("Where I said Feishu and no cx-feishu skill is listed, cx-feishu is not installed: tell me in this chat instead");
+it("/listing-watch reaches the model as its sentence, and with words after it as the sentence then the words", async () => {
+  expect((await typed(ROOT, "/listing-watch")).trim()).toBe(SENTENCE);
+  expect((await typed(ROOT, "/listing-watch B000123456 以后每天帮我盯着这个 listing，有要改的告诉我，没事别吵")).trim()).toBe(`${SENTENCE} B000123456 以后每天帮我盯着这个 listing，有要改的告诉我，没事别吵`);
+});
+
+it("the template's body is its description word for word, then the seller's own words", () => {
+  const text = readFileSync(join(ROOT, "prompts", "listing-watch.md"), "utf8");
+  expect(text.replace(/^---\n[\s\S]*?\n---\n/, "")).toBe(`${JSON.parse(/^description: (".*")$/m.exec(text)![1]!) as string} $@\n`);
 });
 
 it("is @comchatx/cx-listing-watch; the Plugins page installs every borrowed plugin from builds, and needs names cx-schedule alone, cx-feishu optional", () => {

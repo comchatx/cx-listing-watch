@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.1.8
+
+- The `listing-watch` template sends its Try it sentence, word for word, then the words you type after its name.
+
 ## 0.1.7
 
 - The README, in English and Chinese, no longer names other plugins, as signed on 2026-11-18: the Overview's first paragraph drops its last sentence ("It needs Amazon Listing Playbook, Amazon SP-API and Scheduled Tasks, which Plugins installs with it."), and the sentence on Keepa and Feishu in the later paragraph is removed. The Plugins page draws what the package builds on from `comchatx.builds`.

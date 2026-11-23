@@ -1,6 +1,6 @@
 {
   "name": "@comchatx/cx-listing-watch",
-  "version": "0.1.7",
+  "version": "0.1.8",
   "description": "Has cx check listings regularly and say what needs changing.",
   "license": "MIT",
   "author": "ComChatX",
