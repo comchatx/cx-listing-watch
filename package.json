@@ -1,6 +1,6 @@
 {
   "name": "@comchatx/cx-listing-watch",
-  "version": "0.1.7",
+  "version": "0.1.8",
   "description": "Has cx check listings regularly and say what needs changing.",
   "license": "MIT",
   "author": "ComChatX",
@@ -45,6 +45,12 @@
         }
       }
     ],
+    "skills": {
+      "watch-instruction": {
+        "zh": "每个 listing 定期检查的要求是你写的，你可以查看和修改。",
+        "en": "Each listing's instructions for a regular check, in your own words, for you to read and change."
+      }
+    },
     "prompts": {
       "listing-watch": {
         "zh": "定期检查【ASIN】，多久查一次、什么时候告诉我：【要求】"
@@ -62,11 +68,15 @@
   ],
   "type": "module",
   "pi": {
+    "skills": [
+      "./skills"
+    ],
     "prompts": [
       "./prompts"
     ]
   },
   "files": [
+    "skills",
     "prompts",
     "README.zh-CN.md"
   ],

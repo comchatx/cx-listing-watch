@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.1.8
+
+- The `listing-watch` template sends its Try it sentence, word for word, then the words you type after its name.
+- A skill, `watch-instruction`, says that a listing's standing instruction is the file `/tenant/listings/<ASIN>/watch.md`, that it holds your own words, and that you can read and change it.
+- `watch-instruction` has its line in the `/` list, at `comchatx.skills["watch-instruction"]`: 「每个 listing 定期检查的要求是你写的，你可以查看和修改。」 / "Each listing's instructions for a regular check, in your own words, for you to read and change."
+
 ## 0.1.7
 
 - The README, in English and Chinese, no longer names other plugins, as signed on 2026-11-18: the Overview's first paragraph drops its last sentence ("It needs Amazon Listing Playbook, Amazon SP-API and Scheduled Tasks, which Plugins installs with it."), and the sentence on Keepa and Feishu in the later paragraph is removed. The Plugins page draws what the package builds on from `comchatx.builds`.
