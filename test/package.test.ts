@@ -18,6 +18,7 @@ it("the pinned pi loads one template, /listing-watch, one skill, watch-instructi
   const skills = loader.getSkills();
   expect(skills.diagnostics).toEqual([]);
   expect(skills.skills.map((skill) => [skill.name, skill.filePath])).toEqual([["watch-instruction", join(ROOT, "skills", "watch-instruction", "SKILL.md")]]);
+  expect(manifest()["comchatx"]["skills"]).toEqual({ "watch-instruction": { zh: "每个 listing 定期检查的要求是你写的，你可以查看和修改。", en: "Each listing's instructions for a regular check, in your own words, for you to read and change." } });
   expect(loader.getExtensions().extensions).toEqual([]);
 });
 

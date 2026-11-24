@@ -4,6 +4,7 @@
 
 - The `listing-watch` template sends its Try it sentence, word for word, then the words you type after its name.
 - A skill, `watch-instruction`, says that a listing's standing instruction is the file `/tenant/listings/<ASIN>/watch.md`, that it holds your own words, and that you can read and change it.
+- `watch-instruction` has its line in the `/` list, at `comchatx.skills["watch-instruction"]`: 「每个 listing 定期检查的要求是你写的，你可以查看和修改。」 / "Each listing's instructions for a regular check, in your own words, for you to read and change."
 
 ## 0.1.7
 
