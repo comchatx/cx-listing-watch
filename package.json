@@ -1,6 +1,6 @@
 {
   "name": "@comchatx/cx-listing-watch",
-  "version": "0.1.8",
+  "version": "0.1.9",
   "description": "Has cx check listings regularly and say what needs changing.",
   "license": "MIT",
   "author": "ComChatX",
@@ -9,7 +9,13 @@
     "nameZh": "亚马逊 listing 巡检",
     "about": "让 cx 按你的要求定期检查 listing，需要修改时再告诉你。",
     "mark": {
-      "line": "review"
+      "on": "glass",
+      "draw": [
+        {
+          "d": "M3 11.4V5a2 2 0 0 1 2-2h6.4a2 2 0 0 1 1.42.59l8.2 8.2a2 2 0 0 1 0 2.82l-6.41 6.41a2 2 0 0 1-2.82 0l-8.2-8.2A2 2 0 0 1 3 11.4zM6.1 7.9a1.8 1.8 0 1 1 3.6 0a1.8 1.8 0 1 1 -3.6 0z",
+          "rule": "evenodd"
+        }
+      ]
     },
     "section": "extensions",
     "order": 52,
